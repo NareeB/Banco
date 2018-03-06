@@ -54,12 +54,30 @@ public class CuentaCorriente {
             this.saldo = (saldo - monto);
     }
     
-    public void Mostrar(){
+    @Override
+    public String toString(){
+        return this.titular.toString()+"\nN. Cuenta: "+this.nroCuenta+
+        "\nSaldo: "+this.saldo;
+    }
+    
+    @Override
+    public boolean equals(Object n){
+        if (n == null || !(n instanceof CuentaCorriente))
+            return false;
+        boolean iguales = false;
+        CuentaCorriente c = (CuentaCorriente) n;
+        if (c.nroCuenta == this.nroCuenta){
+            iguales = true;
+        }   
+        return iguales;
+    }
+    
+    /**public void Mostrar(){
         System.out.println(" Titular;");
         System.out.println("Nombre: "+this.titular.getNombre());
         System.out.println("Apellido: "+this.titular.getApellido());
         System.out.println("Edad: "+this.titular.getEdad());
         System.out.println("Nro de Cuenta: "+this.nroCuenta);
         System.out.println("Saldo: "+this.saldo);
-    }
+    }*/
 }

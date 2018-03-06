@@ -15,8 +15,15 @@ public class TestBanco {
         personita.setNombre("Narela Soledad");
         personita.setApellido("Bauer");
         personita.setEdad(19);
+        Cliente amor = new Cliente();
+        amor.setNombre("Gonzalo Hernán");
+        amor.setApellido("Velasco");
+        amor.setEdad(19);
         CuentaCorriente c1 = new CuentaCorriente(personita,41324859,70.50);
-        c1.Mostrar();
+        CuentaCorriente c2 = new CuentaCorriente(amor,41324859,1502.00);
+        //c1.Mostrar();
+        //c2.Mostrar();
+        c1.equals(c2);
         
     }
     

@@ -36,5 +36,9 @@ public class Cliente {
         this.edad = edad;
     }
     
+    @Override
+    public String toString(){
+        return "Nombre: "+this.nombre+"\nApellido: "+this.apellido+"\nEdad: "+this.edad;
+    }
     
 }
