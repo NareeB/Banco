@@ -8,17 +8,19 @@ package test.banco;
  * @time 9:23:20 AM
  */
 public class CuentaCorriente {
+    //Atributos
     private Cliente titular;
     private int nroCuenta;
     private double saldo;
     
-    public void setTitular(){
+    //Getters y setters
+    public void setTitular(Cliente titular){
         this.titular = titular;
     }
-    public void setNroCuenta(){
+    public void setNroCuenta(int nroCuenta){
         this.nroCuenta = nroCuenta;
     }
-    public void setSalario(){
+    public void setSaldo(double saldo){
         this.saldo = saldo;
     }
     public Cliente getTitular(){
@@ -31,35 +33,37 @@ public class CuentaCorriente {
         return saldo;
     }
     
+    //Constructores de Cuenta Corriente
     public CuentaCorriente(Cliente titular, int nroCuenta, double saldo){
         this.titular = titular;
         this.nroCuenta = nroCuenta;
         this.saldo = saldo;
     }
-    
     public CuentaCorriente(Cliente titular, int nroCuenta){
         this.titular = titular;
         this.nroCuenta = nroCuenta;
     }
     
+    //Metodos para depositos y extracciones de dinero en la cuenta corriente
     public void Depositar(double monto){
         this.saldo = (saldo + monto);
     }
-    
     public void Extraer(double monto){
         if (monto > saldo){
-            System.out.println("Saldo insuficiente");
+            System.out.println("Saldo insuficiente para extracción");
         }
         else
             this.saldo = (saldo - monto);
     }
     
+    //Sobreescritura para devolver los atributos
     @Override
     public String toString(){
-        return this.titular.toString()+"\nN. Cuenta: "+this.nroCuenta+
-        "\nSaldo: "+this.saldo;
+        return titular.toString()+"\nN. Cuenta: "+nroCuenta+
+        "\nSaldo: "+saldo;
     }
     
+    //Sobreescrituta para comparar los numeros de cuenta.
     @Override
     public boolean equals(Object n){
         if (n == null || !(n instanceof CuentaCorriente))
